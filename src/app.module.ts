@@ -16,9 +16,7 @@ import { SeedModule } from './seed/seed.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
-      synchronize: true, //talvez no convenga que esté en true en produccion
-      //porque en produccion mas que todo modificamos con migraciones, esto 
-      //podemos manejar tambien con variables de entorno
+      synchronize: true,
     }),
     AuthModule,
     CommonModule,

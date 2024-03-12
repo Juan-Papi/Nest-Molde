@@ -19,8 +19,6 @@ import { JwtStrategy } from './strategies/jwt.strategy';
       imports: [ConfigModule],
       inject: [ConfigService],
       useFactory: (configService: ConfigService) => {
-        // console.log('JWT SECRET', configService.get('JWT_SECRET'));
-        // console.log('JWT SECRET', process.env.JWT_SECRET);
         return {
           secret: configService.get('JWT_SECRET'),
           signOptions: {
@@ -29,12 +27,6 @@ import { JwtStrategy } from './strategies/jwt.strategy';
         };
       },
     }),
-    // JwtModule.register({
-    //   secret: process.env.JWT_SECRET, //aqui es una variable de entorno
-    //   signOptions: {
-    //     expiresIn: '2h',
-    //   },
-    // }),
   ],
   exports: [TypeOrmModule, JwtStrategy, PassportModule, JwtModule],
 })
